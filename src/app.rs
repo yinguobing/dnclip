@@ -470,8 +470,8 @@ impl eframe::App for DnClipApp {
             ui.with_layout(egui::Layout::bottom_up(egui::Align::Center), |ui| {
                 // Controls at the bottom
                 if has_video && total_dur > 0.0 {
-                    ui.horizontal_centered(|ui| {
-                            ui.spacing_mut().item_spacing.x = 4.0;
+                    ui.horizontal(|ui| {
+                        ui.spacing_mut().item_spacing.x = 4.0;
                             if ui.button("⏮").clicked() { let _ = self.player.seek_relative(-30.0); }
                             if ui.button("◀◀").clicked() { let _ = self.player.seek_relative(-5.0); }
                             let play_label = if self.paused { "▶" } else { "⏸" };
