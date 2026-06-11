@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>dnclip — Video trimmer for DaVinci Resolve on Linux</title>
-<meta name="description" content="dnclip is a Linux desktop video trimming tool. Preview with mpv, mark in/out points, export DNxHD/DNxHR .mov files ready for DaVinci Resolve.">
+<title>dnclip — Linux 平台的 DaVinci Resolve 视频剪辑工具</title>
+<meta name="description" content="dnclip 是一款 Linux 桌面视频剪辑工具。使用 mpv 预览画面，标记入点/出点，导出 DNxHD/DNxHR .mov 文件，直接导入 DaVinci Resolve。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg-deep: #07070e;
@@ -26,9 +26,9 @@
     --red: #d83838;
     --green: #38a058;
     --green-dim: #1a4a28;
-    --font-display: 'Syne', system-ui, sans-serif;
+    --font-display: 'ZCOOL QingKe HuangYou', 'Noto Serif SC', serif;
     --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
-    --font-body: 'Newsreader', 'Georgia', 'Times New Roman', serif;
+    --font-body: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'SimSun', serif;
     --grain-opacity: 0.04;
   }
 
@@ -43,7 +43,7 @@
 
   body {
     font-family: var(--font-body);
-    line-height: 1.6;
+    line-height: 1.8;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -143,13 +143,12 @@
     list-style: none;
   }
   .nav-links a {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
     font-weight: 500;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.04em;
     color: var(--text-secondary);
     text-decoration: none;
-    text-transform: uppercase;
     transition: color 0.2s;
     position: relative;
   }
@@ -213,12 +212,11 @@
   .hero-frameline.bl::after { width: 1px; height: 100%; top: 0; right: 0; }
 
   .hero-badge {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
     color: var(--amber);
-    text-transform: uppercase;
-    padding: 0.4em 1em;
+    padding: 0.4em 1.2em;
     border: 1px solid var(--amber-dim);
     border-radius: 2px;
     margin-bottom: 2.5rem;
@@ -226,17 +224,16 @@
   .hero-title {
     font-family: var(--font-display);
     font-size: clamp(4rem, 12vw, 9rem);
-    font-weight: 800;
+    font-weight: 400;
     line-height: 0.9;
-    letter-spacing: -0.03em;
+    letter-spacing: 0.04em;
     color: var(--text-primary);
-    text-transform: uppercase;
   }
   .hero-tagline {
     font-family: var(--font-display);
-    font-size: clamp(1.2rem, 3vw, 1.8rem);
-    font-weight: 500;
-    letter-spacing: 0.04em;
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    font-weight: 400;
+    letter-spacing: 0.08em;
     color: var(--text-secondary);
     margin-top: 1.5rem;
     display: flex;
@@ -256,10 +253,10 @@
   .hero-subtitle {
     font-family: var(--font-body);
     font-size: 1.1rem;
-    font-style: italic;
     color: var(--text-muted);
     margin-top: 2rem;
-    max-width: 480px;
+    max-width: 520px;
+    line-height: 1.9;
   }
   /* Timecode display */
   .timecode {
@@ -286,11 +283,10 @@
     justify-content: center;
   }
   .btn {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
     font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    letter-spacing: 0.04em;
     text-decoration: none;
     padding: 0.9rem 2rem;
     border-radius: 2px;
@@ -335,18 +331,18 @@
   .section-title {
     font-family: var(--font-display);
     font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    line-height: 1.3;
     margin-bottom: 3rem;
   }
   .section-desc {
     font-family: var(--font-body);
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     color: var(--text-secondary);
     max-width: 640px;
     margin-bottom: 4rem;
-    font-style: italic;
+    line-height: 1.9;
   }
 
   /* ── Features grid ────────────────────────── */
@@ -385,7 +381,7 @@
   .feature-number {
     font-family: var(--font-display);
     font-size: 3rem;
-    font-weight: 800;
+    font-weight: 400;
     color: var(--border-bright);
     line-height: 1;
     margin-bottom: 1rem;
@@ -395,15 +391,15 @@
   .feature-card h3 {
     font-family: var(--font-display);
     font-size: 1.3rem;
-    font-weight: 600;
+    font-weight: 400;
     margin-bottom: 0.75rem;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.02em;
   }
   .feature-card p {
     font-family: var(--font-body);
     font-size: 0.95rem;
     color: var(--text-secondary);
-    line-height: 1.7;
+    line-height: 1.9;
   }
 
   /* ── Architecture (How It Works) ──────────── */
@@ -420,8 +416,8 @@
     padding: 3rem 0;
   }
   .arch-node {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
     font-weight: 500;
     letter-spacing: 0.03em;
     padding: 1.2rem 1.8rem;
@@ -437,13 +433,14 @@
     box-shadow: 0 0 32px rgba(0, 192, 192, 0.1);
   }
   .arch-node .node-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
     color: var(--text-muted);
-    text-transform: uppercase;
     margin-bottom: 0.3rem;
   }
   .arch-node .node-name {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
     color: var(--text-primary);
   }
   .arch-node.highlight {
@@ -476,18 +473,20 @@
   .arch-detail-card h4 {
     font-family: var(--font-display);
     font-size: 1.1rem;
+    font-weight: 400;
     margin-bottom: 0.5rem;
+    letter-spacing: 0.04em;
   }
   .arch-detail-card p {
     font-family: var(--font-body);
     font-size: 0.9rem;
     color: var(--text-secondary);
-    line-height: 1.7;
+    line-height: 1.9;
   }
 
   /* ── Tech specs table ─────────────────────── */
   .specs-table {
-    max-width: 700px;
+    max-width: 720px;
     margin: 0 auto;
     width: 100%;
     border-collapse: collapse;
@@ -498,14 +497,14 @@
   .specs-table tr:last-child { border-bottom: none; }
   .specs-table td {
     padding: 1.2rem 0.5rem;
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
   }
   .specs-table td:first-child {
+    font-family: var(--font-mono);
     color: var(--text-muted);
-    width: 180px;
+    width: 160px;
     letter-spacing: 0.04em;
-    text-transform: uppercase;
     font-size: 0.7rem;
   }
   .specs-table td:last-child {
@@ -517,6 +516,7 @@
     padding: 0.2em 0.6em;
     margin: 0.15em 0.3em;
     font-size: 0.75rem;
+    font-family: var(--font-mono);
     border: 1px solid var(--border-bright);
     border-radius: 2px;
     background: var(--bg-elevated);
@@ -553,11 +553,10 @@
     word-break: break-all;
   }
   .code-label {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
     color: var(--text-muted);
-    text-transform: uppercase;
     margin-bottom: 0.5rem;
   }
 
@@ -578,16 +577,16 @@
     text-align: left;
   }
   .footer-col h5 {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
     color: var(--text-muted);
-    text-transform: uppercase;
     margin-bottom: 0.8rem;
+    font-weight: 600;
   }
   .footer-col a {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
     color: var(--text-secondary);
     text-decoration: none;
     display: block;
@@ -677,7 +676,7 @@
     nav { padding: 0 1rem; }
     .nav-links { gap: 1rem; }
     section { padding: 5rem 1.5rem; }
-    .specs-table td:first-child { width: 120px; }
+    .specs-table td:first-child { width: 100px; }
   }
 
   /* ── Keyboard shortcut kbd ────────────────── */
@@ -707,111 +706,111 @@
 </head>
 <body>
 
-<!-- Film perforations strip -->
+<!-- 胶片齿孔 -->
 <div class="film-perf" aria-hidden="true"></div>
 
-<!-- Navigation -->
+<!-- 导航 -->
 <nav>
   <a href="#" class="nav-brand">
-    <span class="rec-dot" aria-hidden="true" title="Recording indicator — decorative"></span>
+    <span class="rec-dot" aria-hidden="true" title="录制指示灯（装饰）"></span>
     dnclip
   </a>
   <ul class="nav-links">
-    <li><a href="#features">Features</a></li>
-    <li><a href="#how">How</a></li>
-    <li><a href="#specs">Specs</a></li>
-    <li><a href="#install">Install</a></li>
+    <li><a href="#features">功能</a></li>
+    <li><a href="#how">架构</a></li>
+    <li><a href="#specs">参数</a></li>
+    <li><a href="#install">安装</a></li>
     <li><a href="https://github.com/yinguobing/dnclip" target="_blank" rel="noopener">GitHub ↗</a></li>
   </ul>
 </nav>
 
-<!-- Hero -->
+<!-- 首屏 -->
 <header class="hero">
   <div class="hero-frameline tl" aria-hidden="true"></div>
   <div class="hero-frameline tr" aria-hidden="true"></div>
   <div class="hero-frameline bl" aria-hidden="true"></div>
   <div class="hero-frameline br" aria-hidden="true"></div>
 
-  <div class="hero-badge reveal">Open Source · Linux Desktop</div>
+  <div class="hero-badge reveal">开源软件 · Linux 桌面</div>
   <h1 class="hero-title reveal reveal-delay-1">dnclip</h1>
   <p class="hero-tagline reveal reveal-delay-2">
-    <span>Trim</span><span>Transcode</span><span>Import</span>
+    <span>剪辑</span><span>转码</span><span>导入</span>
   </p>
   <p class="hero-subtitle reveal reveal-delay-3">
-    A video trimming tool that exports DNxHD/DNxHR clips
-    ready for DaVinci Resolve on Linux.
+    一款 Linux 桌面视频剪辑工具。导出 DNxHD/DNxHR 格式，
+    直接导入 DaVinci Resolve，无缝衔接你的剪辑流程。
   </p>
   <div class="timecode reveal reveal-delay-3" id="timecode" aria-live="off">
     00:00:00<span class="frames">:00</span>
   </div>
   <div class="hero-cta reveal reveal-delay-4">
-    <a href="https://github.com/yinguobing/dnclip" class="btn btn-primary" target="_blank" rel="noopener">View on GitHub</a>
-    <a href="#install" class="btn btn-secondary">Install</a>
+    <a href="https://github.com/yinguobing/dnclip" class="btn btn-primary" target="_blank" rel="noopener">查看 GitHub</a>
+    <a href="#install" class="btn btn-secondary">安装指南</a>
   </div>
 </header>
 
-<!-- Features -->
+<!-- 功能特性 -->
 <section id="features">
-  <div class="section-label reveal">01 · Capabilities</div>
-  <h2 class="section-title reveal">Purpose-built for the<br>Resolve workflow</h2>
+  <div class="section-label reveal">01 · 功能特性</div>
+  <h2 class="section-title reveal">为 Resolve 工作流<br>量身打造</h2>
   <p class="section-desc reveal">
-    Every feature solves a real pain point in the DaVinci Resolve Free
-    on Linux pipeline. Nothing more, nothing less.
+    每个功能都精准解决 DaVinci Resolve Free 在 Linux
+    平台上的实际痛点。不多不少，恰到好处。
   </p>
 
   <div class="features-grid">
     <div class="feature-card reveal reveal-delay-1">
       <div class="feature-number">01</div>
-      <h3>mpv-powered preview</h3>
+      <h3>mpv 视频预览</h3>
       <p>
-        Embedded mpv video output renders directly inside the GUI via X11
-        child window. Full playback control with frame-accurate stepping
-        — jump, scrub, or nudge one frame at a time.
+        mpv 视频输出通过 X11 子窗口直接嵌入 GUI 界面。
+        完整的播放控制，支持逐帧精确步进——跳转、拖拽、
+        单帧微调，一气呵成。
       </p>
     </div>
     <div class="feature-card reveal reveal-delay-2">
       <div class="feature-number">02</div>
-      <h3>Keyboard-first marking</h3>
+      <h3>键盘优先操作</h3>
       <p>
-        Set in/out points with <kbd>I</kbd> and <kbd>O</kbd> while playing.
-        Each <kbd>O</kbd> auto-captures a segment. Build a batch of clips
-        without ever touching the mouse.
+        播放过程中按 <kbd>I</kbd> 标记入点、<kbd>O</kbd> 标记出点。
+        每次按 <kbd>O</kbd> 自动捕获片段。批量剪辑，
+        双手无需离开键盘。
       </p>
     </div>
     <div class="feature-card reveal reveal-delay-3">
       <div class="feature-number">03</div>
-      <h3>DNxHD / DNxHR export</h3>
+      <h3>DNxHD / DNxHR 导出</h3>
       <p>
-        Transcode only the segments you need. ffmpeg encodes to DNxHD or
-        DNxHR in LB, SQ, HQ, or HQX profiles. Output is a .mov file
-        DaVinci Resolve reads natively.
+        仅转码你需要的片段。ffmpeg 支持 LB、SQ、HQ、HQX
+        四种 DNx 编码配置。输出 .mov 文件，DaVinci Resolve
+        原生支持，直接导入。
       </p>
     </div>
     <div class="feature-card reveal reveal-delay-2">
       <div class="feature-number">04</div>
-      <h3>Segment management</h3>
+      <h3>片段管理</h3>
       <p>
-        Capture multiple in/out ranges from the same source file. Review
-        each segment's timing and duration in the sidebar. Remove any
-        before export.
+        从同一源文件中截取多个出入点范围。侧边栏中查看
+        每个片段的起止时间和时长。导出前可随时移除
+        不需要的片段。
       </p>
     </div>
     <div class="feature-card reveal reveal-delay-3">
       <div class="feature-number">05</div>
-      <h3>Drag &amp; drop</h3>
+      <h3>拖放打开</h3>
       <p>
-        Open files by dragging them onto the preview area, or use
-        <kbd>Ctrl+O</kbd> for the native file dialog. Supports mp4,
-        mov, mkv, avi, webm, mts, and more.
+        将视频文件拖入预览区域即可打开，或使用
+        <kbd>Ctrl+O</kbd> 调用原生文件对话框。
+        支持 mp4、mov、mkv、avi、webm、mts 等主流格式。
       </p>
     </div>
     <div class="feature-card reveal reveal-delay-4">
       <div class="feature-number">06</div>
-      <h3>Smart export naming</h3>
+      <h3>智能导出命名</h3>
       <p>
-        Output files are automatically named with source filename and
-        segment timestamps. Prompts before overwriting anything that
-        already exists.
+        输出文件自动以源文件名和片段时间戳命名。
+        若文件已存在，导出前会弹出提示，
+        避免意外覆盖。
       </p>
     </div>
   </div>
@@ -819,58 +818,58 @@
 
 <div class="section-divider" aria-hidden="true"></div>
 
-<!-- How It Works -->
+<!-- 工作原理 -->
 <section id="how">
   <div class="arch-section">
-    <div class="section-label reveal">02 · Architecture</div>
-    <h2 class="section-title reveal">Three processes,<br>one seamless pipeline</h2>
+    <div class="section-label reveal">02 · 系统架构</div>
+    <h2 class="section-title reveal">三个进程，<br>一条无缝管线</h2>
     <p class="section-desc reveal">
-      dnclip orchestrates three battle-tested tools — each doing what it
-      does best — through a unified Rust GUI.
+      dnclip 通过统一的 Rust 图形界面，将三个久经考验的
+      工具串联起来——各司其职，协同工作。
     </p>
 
     <div class="arch-diagram reveal">
       <div class="arch-node">
-        <div class="node-label">GUI Layer</div>
+        <div class="node-label">图形界面层</div>
         <div class="node-name">egui + eframe</div>
       </div>
       <span class="arch-arrow">→</span>
       <span class="arch-arrow down">↓</span>
       <div class="arch-node highlight">
-        <div class="node-label">Playback Engine</div>
+        <div class="node-label">播放引擎</div>
         <div class="node-name">mpv</div>
       </div>
       <span class="arch-arrow">→</span>
       <span class="arch-arrow down">↓</span>
       <div class="arch-node">
-        <div class="node-label">Encoder</div>
+        <div class="node-label">编码器</div>
         <div class="node-name">ffmpeg</div>
       </div>
     </div>
 
     <div class="arch-detail">
       <div class="arch-detail-card reveal reveal-delay-1">
-        <h4>egui renders the UI</h4>
+        <h4>egui 渲染界面</h4>
         <p>
-          Immediate-mode GUI in Rust. Timeline slider, transport controls,
-          segment list, and export panel — all rendered at native speed with
-          minimal resource use.
+          Rust 语言的即时模式 GUI。时间轴滑块、走带控件、
+          片段列表和导出面板——全部以原生速度渲染，
+          资源占用极低。
         </p>
       </div>
       <div class="arch-detail-card reveal reveal-delay-2">
-        <h4>mpv decodes &amp; renders video</h4>
+        <h4>mpv 解码与渲染</h4>
         <p>
-          Spawned as a child process, embedded into the egui window via X11
-          reparenting. Controlled over a Unix socket with JSON IPC — play,
-          pause, seek, frame-step, query properties.
+          作为子进程启动，通过 X11 窗口重定父级嵌入 egui
+          窗口。通过 Unix 套接字使用 JSON IPC 进行控制——
+          播放、暂停、跳转、逐帧、查询属性。
         </p>
       </div>
       <div class="arch-detail-card reveal reveal-delay-3">
-        <h4>ffmpeg encodes the output</h4>
+        <h4>ffmpeg 编码输出</h4>
         <p>
-          Invoked per export with precise <code>-ss</code> and <code>-t</code>
-          parameters. Encodes to DNxHD/DNxHR with PCM audio in a .mov
-          container — Resolve-ready.
+          每次导出时调用，精确传递 <code>-ss</code> 和
+          <code>-t</code> 参数。编码为 DNxHD/DNxHR 视频
+          加 PCM 音频，封装为 .mov 容器——Resolve 即开即用。
         </p>
       </div>
     </div>
@@ -879,51 +878,51 @@
 
 <div class="section-divider cyan" aria-hidden="true"></div>
 
-<!-- Tech Specs -->
+<!-- 技术规格 -->
 <section id="specs">
-  <div class="section-label reveal">03 · Technical</div>
-  <h2 class="section-title reveal" style="text-align:center">Tech specs</h2>
+  <div class="section-label reveal">03 · 技术规格</div>
+  <h2 class="section-title reveal" style="text-align:center">技术参数</h2>
 
   <table class="specs-table reveal">
     <tbody>
       <tr>
-        <td>Language</td>
-        <td>Rust (edition 2021) — 1,411 lines across 6 source files</td>
+        <td>开发语言</td>
+        <td>Rust（2021 版）—— 6 个源文件，共 1,411 行代码</td>
       </tr>
       <tr>
-        <td>GUI framework</td>
-        <td>egui 0.34 with eframe runtime</td>
+        <td>GUI 框架</td>
+        <td>egui 0.34 + eframe 运行时</td>
       </tr>
       <tr>
-        <td>Video playback</td>
-        <td>mpv, embedded via X11 child window + JSON IPC</td>
+        <td>视频播放</td>
+        <td>mpv，通过 X11 子窗口嵌入 + JSON IPC 通信</td>
       </tr>
       <tr>
-        <td>Export encoder</td>
-        <td>ffmpeg CLI — DNxHD/DNxHR profiles LB, SQ, HQ, HQX</td>
+        <td>导出编码</td>
+        <td>ffmpeg CLI —— DNxHD/DNxHR 配置：LB、SQ、HQ、HQX</td>
       </tr>
       <tr>
-        <td>Output format</td>
-        <td>QuickTime .mov — DNx video + PCM 16-bit audio</td>
+        <td>输出格式</td>
+        <td>QuickTime .mov —— DNx 视频 + PCM 16-bit 音频</td>
       </tr>
       <tr>
-        <td>Windowing</td>
-        <td>X11 (x11-dl) for native child window embedding</td>
+        <td>窗口系统</td>
+        <td>X11（x11-dl）实现原生子窗口嵌入</td>
       </tr>
       <tr>
-        <td>Serialization</td>
-        <td>serde + serde_json for mpv IPC protocol</td>
+        <td>序列化</td>
+        <td>serde + serde_json 处理 mpv IPC 协议</td>
       </tr>
       <tr>
-        <td>File dialogs</td>
-        <td>rfd (native) + egui-file-dialog (in-GUI)</td>
+        <td>文件对话框</td>
+        <td>rfd（原生）+ egui-file-dialog（GUI 内嵌）</td>
       </tr>
       <tr>
-        <td>Packaging</td>
-        <td>cargo-deb with .desktop entry and app icon</td>
+        <td>打包方式</td>
+        <td>cargo-deb，含 .desktop 启动项与应用图标</td>
       </tr>
       <tr>
-        <td>Input formats</td>
+        <td>输入格式</td>
         <td>
           <span class="spec-tag">mp4</span>
           <span class="spec-tag">mov</span>
@@ -938,7 +937,7 @@
         </td>
       </tr>
       <tr>
-        <td>License</td>
+        <td>开源协议</td>
         <td>MIT</td>
       </tr>
     </tbody>
@@ -947,14 +946,14 @@
 
 <div class="section-divider" aria-hidden="true"></div>
 
-<!-- Install -->
+<!-- 安装 -->
 <section id="install">
   <div class="install-section">
-    <div class="section-label reveal">04 · Getting started</div>
-    <h2 class="section-title reveal">Install</h2>
+    <div class="section-label reveal">04 · 快速开始</div>
+    <h2 class="section-title reveal">安装指南</h2>
 
     <div class="reveal">
-      <div class="code-label">Dependencies</div>
+      <div class="code-label">系统依赖</div>
       <div class="code-block">
         <code># Ubuntu / Debian
 sudo apt install mpv ffmpeg libx11-dev</code>
@@ -962,14 +961,14 @@ sudo apt install mpv ffmpeg libx11-dev</code>
     </div>
 
     <div class="reveal reveal-delay-1">
-      <div class="code-label">Install with Cargo</div>
+      <div class="code-label">使用 Cargo 安装</div>
       <div class="code-block">
         <code><span class="prompt">$</span> cargo install dnclip</code>
       </div>
     </div>
 
     <div class="reveal reveal-delay-2">
-      <div class="code-label">Or build from source</div>
+      <div class="code-label">或从源码编译</div>
       <div class="code-block">
         <code><span class="prompt">$</span> git clone https://github.com/yinguobing/dnclip.git
 <span class="prompt">$</span> cd dnclip
@@ -979,26 +978,26 @@ sudo apt install mpv ffmpeg libx11-dev</code>
     </div>
 
     <div class="reveal reveal-delay-3" style="text-align:center; margin-top:2rem;">
-      <a href="https://github.com/yinguobing/dnclip" class="btn btn-primary" target="_blank" rel="noopener">View on GitHub →</a>
+      <a href="https://github.com/yinguobing/dnclip" class="btn btn-primary" target="_blank" rel="noopener">前往 GitHub →</a>
     </div>
   </div>
 </section>
 
-<!-- Footer -->
+<!-- 页脚 -->
 <footer>
   <div class="footer-grid">
     <div class="footer-col">
-      <h5>Project</h5>
+      <h5>项目</h5>
       <a href="https://github.com/yinguobing/dnclip" target="_blank" rel="noopener">GitHub</a>
       <a href="https://github.com/yinguobing/dnclip/blob/master/README.md" target="_blank" rel="noopener">README</a>
-      <a href="https://github.com/yinguobing/dnclip/blob/master/LICENSE" target="_blank" rel="noopener">License (MIT)</a>
+      <a href="https://github.com/yinguobing/dnclip/blob/master/LICENSE" target="_blank" rel="noopener">开源协议（MIT）</a>
     </div>
     <div class="footer-col">
-      <h5>Author</h5>
+      <h5>作者</h5>
       <a href="mailto:yinguobing@gmail.com">yinguobing</a>
     </div>
     <div class="footer-col">
-      <h5>Built with</h5>
+      <h5>技术栈</h5>
       <a href="https://www.rust-lang.org/" target="_blank" rel="noopener">Rust</a>
       <a href="https://www.egui.rs/" target="_blank" rel="noopener">egui</a>
       <a href="https://mpv.io/" target="_blank" rel="noopener">mpv</a>
@@ -1009,26 +1008,26 @@ sudo apt install mpv ffmpeg libx11-dev</code>
 </footer>
 
 <script>
-  // ── Live timecode display ──────────────────
+  // ── 实时时码显示 ──────────────────────────
   (function timecode() {
-    const el = document.getElementById('timecode');
+    var el = document.getElementById('timecode');
     function tick() {
-      const now = new Date();
-      const h = String(now.getHours()).padStart(2, '0');
-      const m = String(now.getMinutes()).padStart(2, '0');
-      const s = String(now.getSeconds()).padStart(2, '0');
-      const f = String(Math.floor(now.getMilliseconds() / 40)).padStart(2, '0');
-      el.innerHTML = `${h}:${m}:${s}<span class="frames">:${f}</span>`;
-      requestAnimationFrame(() => setTimeout(tick, 40));
+      var now = new Date();
+      var h = String(now.getHours()).padStart(2, '0');
+      var m = String(now.getMinutes()).padStart(2, '0');
+      var s = String(now.getSeconds()).padStart(2, '0');
+      var f = String(Math.floor(now.getMilliseconds() / 40)).padStart(2, '0');
+      el.innerHTML = h + ':' + m + ':' + s + '<span class="frames">:' + f + '</span>';
+      requestAnimationFrame(function() { setTimeout(tick, 40); });
     }
     tick();
   })();
 
-  // ── Scroll-triggered reveal ────────────────
+  // ── 滚动触发渐现动画 ──────────────────────
   (function revealOnScroll() {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
+    var observer = new IntersectionObserver(
+      function(entries) {
+        entries.forEach(function(entry) {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
           }
@@ -1037,7 +1036,7 @@ sudo apt install mpv ffmpeg libx11-dev</code>
       { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
     );
 
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
   })();
 </script>
 </body>
